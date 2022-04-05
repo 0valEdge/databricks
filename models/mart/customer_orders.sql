@@ -5,7 +5,7 @@ orders as (
 select * from {{ ref('stg_orders') }}
 ),
 state_map as (
-select * from {{ ref('stg_stage') }}
+select * from {{ ref('stg_state') }}
 ),
 final as (
 	select customer.customer_id, orders.order_id,
