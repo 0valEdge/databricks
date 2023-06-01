@@ -1,0 +1,949 @@
+version: 2
+
+sources:
+  - name: inventory
+    description: ""
+    database: ovaledgedb
+    schema: dbt_Demo
+    loader: ssis
+    
+    meta:
+      owner: "ovaledgedb"
+      tags: ["PII"]
+      
+    tables:
+      - name: account
+        description: "stores data related to account"
+        columns:
+          - name: accountdescription
+            data type: text
+            description: "stores data related to accountdescription in snowflake table account"
+
+          - name: accountkey
+            data type: number
+            description: "stores data related to accountkey in snowflake table account"
+
+          - name: accounttype
+            data type: text
+            description: "stores data related to accounttype in snowflake table account"
+
+          - name: parentaccountkey
+            data type: text
+            description: "stores data related to parentaccountkey in snowflake table account"
+
+          - name: valuetype
+            data type: text
+            description: "stores data related to valuetype in snowflake table account"
+
+      - name: address
+        description: "stores data related to address"
+        columns:
+          - name: addressid
+            data type: number
+            description: "stores data related to addressid in snowflake table address"
+
+          - name: addressline1
+            data type: text
+            description: "stores data related to addressline1 in snowflake table address"
+
+          - name: addressline2
+            data type: text
+            description: "stores data related to addressline2 in snowflake table address"
+
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table address"
+
+          - name: city
+            data type: text
+            description: "stores data related to city in snowflake table address"
+
+          - name: postalcode
+            data type: text
+            description: "stores data related to postalcode in snowflake table address"
+
+          - name: stateprovinceid
+            data type: number
+            description: "stores data related to stateprovinceid in snowflake table address"
+
+      - name: amazonsaleshistory
+        description: "stores data related to amazonsaleshistory"
+        columns:
+          - name: productnumber
+            data type: number
+            description: "stores data related to productnumber in snowflake table amazonsaleshistory"
+
+          - name: saledate
+            data type: date
+            description: "stores data related to saledate in snowflake table amazonsaleshistory"
+
+          - name: salesamount
+            data type: number
+            description: "stores data related to salesamount in snowflake table amazonsaleshistory"
+
+      - name: billofmaterials
+        description: "stores data related to billofmaterials"
+        columns:
+          - name: billofmaterialsid
+            data type: number
+            description: "stores data related to billofmaterialsid in snowflake table billofmaterials"
+
+          - name: bomlevel
+            data type: number
+            description: "stores data related to bomlevel in snowflake table billofmaterials"
+
+          - name: componentid
+            data type: number
+            description: "stores data related to componentid in snowflake table billofmaterials"
+
+          - name: enddate
+            data type: timestamp_ntz
+            description: "stores data related to enddate in snowflake table billofmaterials"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table billofmaterials"
+
+          - name: perassemblyqty
+            data type: number
+            description: "stores data related to perassemblyqty in snowflake table billofmaterials"
+
+          - name: productassemblyid
+            data type: number
+            description: "stores data related to productassemblyid in snowflake table billofmaterials"
+
+          - name: startdate
+            data type: timestamp_ntz
+            description: "stores data related to startdate in snowflake table billofmaterials"
+
+          - name: unitmeasurecode
+            data type: text
+            description: "stores data related to unitmeasurecode in snowflake table billofmaterials"
+
+      - name: customer
+        description: "stores data related to customer"
+        columns:
+          - name: customerid
+            data type: number
+            description: "stores data related to customerid in snowflake table customer"
+
+          - name: personid
+            data type: number
+            description: "stores data related to personid in snowflake table customer"
+
+          - name: ssn
+            data type: text
+            description: "stores data related to ssn in snowflake table customer"
+
+          - name: storeid
+            data type: number
+            description: "stores data related to storeid in snowflake table customer"
+
+          - name: territoryid
+            data type: number
+            description: "stores data related to territoryid in snowflake table customer"
+
+      - name: department
+        description: "stores data related to department"
+        columns:
+          - name: departmentid
+            data type: number
+            description: "stores data related to departmentid in snowflake table department"
+
+          - name: groupname
+            data type: text
+            description: "stores data related to groupname in snowflake table department"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table department"
+
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table department"
+
+      - name: employee
+        description: "stores data related to employee"
+        columns:
+          - name: birthdate
+            data type: date
+            description: "stores data related to birthdate in snowflake table employee"
+
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table employee"
+
+          - name: currentflag
+            data type: number
+            description: "stores data related to currentflag in snowflake table employee"
+
+          - name: gender
+            data type: text
+            description: "stores data related to gender in snowflake table employee"
+
+          - name: hiredate
+            data type: date
+            description: "stores data related to hiredate in snowflake table employee"
+
+          - name: jobtitle
+            data type: text
+            description: "stores data related to jobtitle in snowflake table employee"
+
+          - name: maritalstatus
+            data type: text
+            description: "stores data related to maritalstatus in snowflake table employee"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table employee"
+
+          - name: nationalidnumber
+            data type: text
+            description: "stores data related to nationalidnumber in snowflake table employee"
+
+          - name: organizationlevel
+            data type: number
+            description: "stores data related to organizationlevel in snowflake table employee"
+
+          - name: salariedflag
+            data type: number
+            description: "stores data related to salariedflag in snowflake table employee"
+
+          - name: sickleavehours
+            data type: number
+            description: "stores data related to sickleavehours in snowflake table employee"
+
+          - name: vacationhours
+            data type: number
+            description: "stores data related to vacationhours in snowflake table employee"
+
+      - name: employeedepartment
+        description: "stores data related to employeedepartment"
+        columns:
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table employeedepartment"
+
+          - name: departmentid
+            data type: number
+            description: "stores data related to departmentid in snowflake table employeedepartment"
+
+          - name: enddate
+            data type: date
+            description: "stores data related to enddate in snowflake table employeedepartment"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table employeedepartment"
+
+          - name: shiftid
+            data type: number
+            description: "stores data related to shiftid in snowflake table employeedepartment"
+
+          - name: startdate
+            data type: date
+            description: "stores data related to startdate in snowflake table employeedepartment"
+
+      - name: krogersaleshistory
+        description: "stores data related to krogersaleshistory"
+        columns:
+          - name: productnumber
+            data type: number
+            description: "stores data related to productnumber in snowflake table krogersaleshistory"
+
+          - name: saledate
+            data type: date
+            description: "stores data related to saledate in snowflake table krogersaleshistory"
+
+          - name: salesamount
+            data type: number
+            description: "stores data related to salesamount in snowflake table krogersaleshistory"
+
+      - name: person
+        description: "stores data related to person"
+        columns:
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table person"
+
+          - name: email
+            data type: text
+            description: "stores data related to email in snowflake table person"
+
+          - name: firstname
+            data type: text
+            description: "stores data related to firstname in snowflake table person"
+
+          - name: lastname
+            data type: text
+            description: "stores data related to lastname in snowflake table person"
+
+          - name: middlename
+            data type: text
+            description: "stores data related to middlename in snowflake table person"
+
+          - name: nationalidnumber/ssn
+            data type: text
+            description: "stores data related to nationalidnumber/ssn in snowflake table person"
+
+          - name: persontype
+            data type: text
+            description: "stores data related to persontype in snowflake table person"
+
+          - name: title
+            data type: text
+            description: "stores data related to title in snowflake table person"
+
+      - name: personphone
+        description: "stores data related to personphone"
+        columns:
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table personphone"
+
+          - name: phonenumber
+            data type: text
+            description: "stores data related to phonenumber in snowflake table personphone"
+
+      - name: plant
+        description: "stores data related to plant"
+        columns:
+          - name: city
+            data type: text
+            description: "stores data related to city in snowflake table plant"
+
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table plant"
+
+          - name: plantid
+            data type: number
+            description: "stores data related to plantid in snowflake table plant"
+
+      - name: product
+        description: "stores data related to product"
+        columns:
+          - name: class
+            data type: text
+            description: "stores data related to class in snowflake table product"
+
+          - name: color
+            data type: text
+            description: "stores data related to color in snowflake table product"
+
+          - name: daystomanufacture
+            data type: number
+            description: "stores data related to daystomanufacture in snowflake table product"
+
+          - name: discontinueddate
+            data type: timestamp_ntz
+            description: "stores data related to discontinueddate in snowflake table product"
+
+          - name: finishedgoodsflag
+            data type: number
+            description: "stores data related to finishedgoodsflag in snowflake table product"
+
+          - name: formula
+            data type: text
+            description: "stores data related to formula in snowflake table product"
+
+          - name: listprice
+            data type: number
+            description: "stores data related to listprice in snowflake table product"
+
+          - name: makeflag
+            data type: number
+            description: "stores data related to makeflag in snowflake table product"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table product"
+
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table product"
+
+          - name: plantid
+            data type: number
+            description: "stores data related to plantid in snowflake table product"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table product"
+
+          - name: productline
+            data type: text
+            description: "stores data related to productline in snowflake table product"
+
+          - name: productmodelid
+            data type: number
+            description: "stores data related to productmodelid in snowflake table product"
+
+          - name: productnumber
+            data type: text
+            description: "stores data related to productnumber in snowflake table product"
+
+          - name: productsubcategoryid
+            data type: number
+            description: "stores data related to productsubcategoryid in snowflake table product"
+
+          - name: reorderpoint
+            data type: number
+            description: "stores data related to reorderpoint in snowflake table product"
+
+          - name: safetystocklevel
+            data type: number
+            description: "stores data related to safetystocklevel in snowflake table product"
+
+          - name: sellenddate
+            data type: timestamp_ntz
+            description: "stores data related to sellenddate in snowflake table product"
+
+          - name: sellstartdate
+            data type: timestamp_ntz
+            description: "stores data related to sellstartdate in snowflake table product"
+
+          - name: size
+            data type: text
+            description: "stores data related to size in snowflake table product"
+
+          - name: sizeunitmeasurecode
+            data type: text
+            description: "stores data related to sizeunitmeasurecode in snowflake table product"
+
+          - name: standardcost
+            data type: number
+            description: "stores data related to standardcost in snowflake table product"
+
+          - name: style
+            data type: text
+            description: "stores data related to style in snowflake table product"
+
+          - name: warranty
+            data type: number
+            description: "stores data related to warranty in snowflake table product"
+
+          - name: weight
+            data type: number
+            description: "stores data related to weight in snowflake table product"
+
+          - name: weightunitmeasurecode
+            data type: text
+            description: "stores data related to weightunitmeasurecode in snowflake table product"
+
+      - name: productcategory
+        description: "stores data related to productcategory"
+        columns:
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table productcategory"
+
+          - name: productcategoryid
+            data type: number
+            description: "stores data related to productcategoryid in snowflake table productcategory"
+
+      - name: productlistpricehistory
+        description: "stores data related to productlistpricehistory"
+        columns:
+          - name: enddate
+            data type: timestamp_ntz
+            description: "stores data related to enddate in snowflake table productlistpricehistory"
+
+          - name: listprice
+            data type: number
+            description: "stores data related to listprice in snowflake table productlistpricehistory"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table productlistpricehistory"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table productlistpricehistory"
+
+          - name: startdate
+            data type: timestamp_ntz
+            description: "stores data related to startdate in snowflake table productlistpricehistory"
+
+      - name: productsubcategory
+        description: "stores data related to productsubcategory"
+        columns:
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table productsubcategory"
+
+          - name: productcategoryid
+            data type: number
+            description: "stores data related to productcategoryid in snowflake table productsubcategory"
+
+          - name: productsubcategoryid
+            data type: number
+            description: "stores data related to productsubcategoryid in snowflake table productsubcategory"
+
+      - name: productvendor
+        description: "stores data related to productvendor"
+        columns:
+          - name: averageleadtime
+            data type: number
+            description: "stores data related to averageleadtime in snowflake table productvendor"
+
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table productvendor"
+
+          - name: lastreceiptcost
+            data type: number
+            description: "stores data related to lastreceiptcost in snowflake table productvendor"
+
+          - name: lastreceiptdate
+            data type: timestamp_ntz
+            description: "stores data related to lastreceiptdate in snowflake table productvendor"
+
+          - name: maxorderqty
+            data type: number
+            description: "stores data related to maxorderqty in snowflake table productvendor"
+
+          - name: minorderqty
+            data type: number
+            description: "stores data related to minorderqty in snowflake table productvendor"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table productvendor"
+
+          - name: onorderqty
+            data type: number
+            description: "stores data related to onorderqty in snowflake table productvendor"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table productvendor"
+
+          - name: standardprice
+            data type: number
+            description: "stores data related to standardprice in snowflake table productvendor"
+
+          - name: unitmeasurecode
+            data type: text
+            description: "stores data related to unitmeasurecode in snowflake table productvendor"
+
+      - name: purchaseorderdetail
+        description: "stores data related to purchaseorderdetail"
+        columns:
+          - name: duedate
+            data type: timestamp_ntz
+            description: "stores data related to duedate in snowflake table purchaseorderdetail"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table purchaseorderdetail"
+
+          - name: orderqty
+            data type: number
+            description: "stores data related to orderqty in snowflake table purchaseorderdetail"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table purchaseorderdetail"
+
+          - name: purchaseorderdetailid
+            data type: number
+            description: "stores data related to purchaseorderdetailid in snowflake table purchaseorderdetail"
+
+          - name: purchaseorderid
+            data type: number
+            description: "stores data related to purchaseorderid in snowflake table purchaseorderdetail"
+
+          - name: receivedqty
+            data type: number
+            description: "stores data related to receivedqty in snowflake table purchaseorderdetail"
+
+          - name: rejectedqty
+            data type: number
+            description: "stores data related to rejectedqty in snowflake table purchaseorderdetail"
+
+          - name: unitprice
+            data type: number
+            description: "stores data related to unitprice in snowflake table purchaseorderdetail"
+
+      - name: purchaseorderheader
+        description: "stores data related to purchaseorderheader"
+        columns:
+          - name: employeeid
+            data type: number
+            description: "stores data related to employeeid in snowflake table purchaseorderheader"
+
+          - name: freight
+            data type: number
+            description: "stores data related to freight in snowflake table purchaseorderheader"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table purchaseorderheader"
+
+          - name: orderdate
+            data type: timestamp_ntz
+            description: "stores data related to orderdate in snowflake table purchaseorderheader"
+
+          - name: purchaseorderid
+            data type: number
+            description: "stores data related to purchaseorderid in snowflake table purchaseorderheader"
+
+          - name: revisionnumber
+            data type: number
+            description: "stores data related to revisionnumber in snowflake table purchaseorderheader"
+
+          - name: shipdate
+            data type: timestamp_ntz
+            description: "stores data related to shipdate in snowflake table purchaseorderheader"
+
+          - name: shipmethodid
+            data type: number
+            description: "stores data related to shipmethodid in snowflake table purchaseorderheader"
+
+          - name: status
+            data type: number
+            description: "stores data related to status in snowflake table purchaseorderheader"
+
+          - name: subtotal
+            data type: number
+            description: "stores data related to subtotal in snowflake table purchaseorderheader"
+
+          - name: taxamt
+            data type: number
+            description: "stores data related to taxamt in snowflake table purchaseorderheader"
+
+          - name: totaldue
+            data type: number
+            description: "stores data related to totaldue in snowflake table purchaseorderheader"
+
+          - name: vendorid
+            data type: number
+            description: "stores data related to vendorid in snowflake table purchaseorderheader"
+
+      - name: salesorderdetail
+        description: "stores data related to salesorderdetail"
+        columns:
+          - name: carriertrackingnumber
+            data type: text
+            description: "stores data related to carriertrackingnumber in snowflake table salesorderdetail"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table salesorderdetail"
+
+          - name: orderqty
+            data type: number
+            description: "stores data related to orderqty in snowflake table salesorderdetail"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table salesorderdetail"
+
+          - name: salesorderdetailid
+            data type: number
+            description: "stores data related to salesorderdetailid in snowflake table salesorderdetail"
+
+          - name: salesorderid
+            data type: number
+            description: "stores data related to salesorderid in snowflake table salesorderdetail"
+
+          - name: specialofferid
+            data type: number
+            description: "stores data related to specialofferid in snowflake table salesorderdetail"
+
+          - name: unitprice
+            data type: number
+            description: "stores data related to unitprice in snowflake table salesorderdetail"
+
+          - name: unitpricediscount
+            data type: number
+            description: "stores data related to unitpricediscount in snowflake table salesorderdetail"
+
+      - name: salesorderheader
+        description: "stores data related to salesorderheader"
+        columns:
+          - name: accountnumber
+            data type: text
+            description: "stores data related to accountnumber in snowflake table salesorderheader"
+
+          - name: billtoaddressid
+            data type: number
+            description: "stores data related to billtoaddressid in snowflake table salesorderheader"
+
+          - name: comment
+            data type: text
+            description: "stores data related to comment in snowflake table salesorderheader"
+
+          - name: creditcardapprovalcode
+            data type: text
+            description: "stores data related to creditcardapprovalcode in snowflake table salesorderheader"
+
+          - name: creditcardid
+            data type: number
+            description: "stores data related to creditcardid in snowflake table salesorderheader"
+
+          - name: currencyrateid
+            data type: number
+            description: "stores data related to currencyrateid in snowflake table salesorderheader"
+
+          - name: customerid
+            data type: number
+            description: "stores data related to customerid in snowflake table salesorderheader"
+
+          - name: duedate
+            data type: timestamp_ntz
+            description: "stores data related to duedate in snowflake table salesorderheader"
+
+          - name: freight
+            data type: number
+            description: "stores data related to freight in snowflake table salesorderheader"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table salesorderheader"
+
+          - name: onlineorderflag
+            data type: number
+            description: "stores data related to onlineorderflag in snowflake table salesorderheader"
+
+          - name: orderdate
+            data type: timestamp_ntz
+            description: "stores data related to orderdate in snowflake table salesorderheader"
+
+          - name: purchaseordernumber
+            data type: text
+            description: "stores data related to purchaseordernumber in snowflake table salesorderheader"
+
+          - name: revisionnumber
+            data type: number
+            description: "stores data related to revisionnumber in snowflake table salesorderheader"
+
+          - name: salesorderid
+            data type: number
+            description: "stores data related to salesorderid in snowflake table salesorderheader"
+
+          - name: salesordernumber
+            data type: text
+            description: "stores data related to salesordernumber in snowflake table salesorderheader"
+
+          - name: salespersonid
+            data type: number
+            description: "stores data related to salespersonid in snowflake table salesorderheader"
+
+          - name: shipdate
+            data type: timestamp_ntz
+            description: "stores data related to shipdate in snowflake table salesorderheader"
+
+          - name: shipmethodid
+            data type: number
+            description: "stores data related to shipmethodid in snowflake table salesorderheader"
+
+          - name: shiptoaddressid
+            data type: number
+            description: "stores data related to shiptoaddressid in snowflake table salesorderheader"
+
+          - name: status
+            data type: number
+            description: "stores data related to status in snowflake table salesorderheader"
+
+          - name: subtotal
+            data type: number
+            description: "stores data related to subtotal in snowflake table salesorderheader"
+
+          - name: taxamt
+            data type: number
+            description: "stores data related to taxamt in snowflake table salesorderheader"
+
+          - name: territoryid
+            data type: number
+            description: "stores data related to territoryid in snowflake table salesorderheader"
+
+      - name: shipmethod
+        description: "stores data related to shipmethod"
+        columns:
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table shipmethod"
+
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table shipmethod"
+
+          - name: shipbase
+            data type: number
+            description: "stores data related to shipbase in snowflake table shipmethod"
+
+          - name: shipmethodid
+            data type: number
+            description: "stores data related to shipmethodid in snowflake table shipmethod"
+
+          - name: shiprate
+            data type: number
+            description: "stores data related to shiprate in snowflake table shipmethod"
+
+      - name: stateprovince
+        description: "stores data related to stateprovince"
+        columns:
+          - name: countryregioncode
+            data type: text
+            description: "stores data related to countryregioncode in snowflake table stateprovince"
+
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table stateprovince"
+
+          - name: stateprovincecode
+            data type: text
+            description: "stores data related to stateprovincecode in snowflake table stateprovince"
+
+          - name: stateprovinceid
+            data type: number
+            description: "stores data related to stateprovinceid in snowflake table stateprovince"
+
+          - name: territoryid
+            data type: number
+            description: "stores data related to territoryid in snowflake table stateprovince"
+
+      - name: storagelocation
+        description: "stores data related to storagelocation"
+        columns:
+          - name: availability
+            data type: number
+            description: "stores data related to availability in snowflake table storagelocation"
+
+          - name: bin
+            data type: number
+            description: "stores data related to bin in snowflake table storagelocation"
+
+          - name: costrate
+            data type: number
+            description: "stores data related to costrate in snowflake table storagelocation"
+
+          - name: locationid
+            data type: number
+            description: "stores data related to locationid in snowflake table storagelocation"
+
+          - name: locationname
+            data type: text
+            description: "stores data related to locationname in snowflake table storagelocation"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table storagelocation"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table storagelocation"
+
+          - name: quantity
+            data type: number
+            description: "stores data related to quantity in snowflake table storagelocation"
+
+          - name: shelf
+            data type: text
+            description: "stores data related to shelf in snowflake table storagelocation"
+
+      - name: transactionhistory
+        description: "stores data related to transactionhistory"
+        columns:
+          - name: actualcost
+            data type: number
+            description: "stores data related to actualcost in snowflake table transactionhistory"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table transactionhistory"
+
+          - name: productid
+            data type: number
+            description: "stores data related to productid in snowflake table transactionhistory"
+
+          - name: quantity
+            data type: number
+            description: "stores data related to quantity in snowflake table transactionhistory"
+
+          - name: referenceorderid
+            data type: number
+            description: "stores data related to referenceorderid in snowflake table transactionhistory"
+
+          - name: referenceorderlineid
+            data type: number
+            description: "stores data related to referenceorderlineid in snowflake table transactionhistory"
+
+          - name: transactiondate
+            data type: timestamp_ntz
+            description: "stores data related to transactiondate in snowflake table transactionhistory"
+
+          - name: transactionid
+            data type: number
+            description: "stores data related to transactionid in snowflake table transactionhistory"
+
+          - name: transactiontype
+            data type: text
+            description: "stores data related to transactiontype in snowflake table transactionhistory"
+
+      - name: targetsaleshistory
+        description: "stores data related to targetsaleshistory"
+        columns:
+          - name: productnumber
+            data type: number
+            description: "stores data related to productnumber in snowflake table targetsaleshistory"
+
+          - name: saledate
+            data type: date
+            description: "stores data related to saledate in snowflake table targetsaleshistory"
+
+          - name: salesamount
+            data type: number
+            description: "stores data related to salesamount in snowflake table targetsaleshistory"
+
+      - name: vendor
+        description: "stores data related to vendor"
+        columns:
+          - name: accountnumber
+            data type: text
+            description: "stores data related to accountnumber in snowflake table vendor"
+
+          - name: activeflag
+            data type: number
+            description: "stores data related to activeflag in snowflake table vendor"
+
+          - name: businessentityid
+            data type: number
+            description: "stores data related to businessentityid in snowflake table vendor"
+
+          - name: creditrating
+            data type: number
+            description: "stores data related to creditrating in snowflake table vendor"
+
+          - name: modifieddate
+            data type: timestamp_ntz
+            description: "stores data related to modifieddate in snowflake table vendor"
+
+          - name: name
+            data type: text
+            description: "stores data related to name in snowflake table vendor"
+
+          - name: preferredvendorstatus
+            data type: number
+            description: "stores data related to preferredvendorstatus in snowflake table vendor"
+
+          - name: purchasingwebserviceurl
+            data type: text
+            description: "stores data related to purchasingwebserviceurl in snowflake table vendor"
+
+      - name: walmartsaleshistory
+        description: "stores data related to walmartsaleshistory"
+        columns:
+          - name: productnumber
+            data type: number
+            description: "stores data related to productnumber in snowflake table walmartsaleshistory"
+
+          - name: saledate
+            data type: date
+            description: "stores data related to saledate in snowflake table walmartsaleshistory"
+
+          - name: salesamount
+            data type: number
+            description: "stores data related to salesamount in snowflake table walmartsaleshistory"

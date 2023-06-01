@@ -1,3 +1,5 @@
+{{ config(schema='STAGING') }}
+
 with source as (
 	select
  	  *

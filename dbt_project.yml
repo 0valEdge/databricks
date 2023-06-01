@@ -1,13 +1,12 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'simple_dbt_project_01'
+name: 'DBT_DEMO'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'simple_dbt_project_01'
+profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -32,7 +31,48 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  simple_dbt_project_01:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: table
+  DBT_DEMO:
+    +materialized: table
+
+vars:
+  DBT_DEMO:
+    account: "{{ source('salesforce', 'account') }}"
+    opportunity: "{{ source('salesforce', 'opportunity') }}"
+    user: "{{ source('salesforce', 'user') }}"
+    user_role: "{{ source('salesforce', 'user_role') }}"
+    contact: "{{ source('salesforce', 'contact') }}"
+    lead: "{{ source('salesforce', 'lead') }}"
+    task: "{{ source('salesforce', 'task') }}"
+    event: "{{ source('salesforce', 'event') }}"
+    product_2: "{{ source('salesforce', 'product_2') }}"
+    order: "{{ source('salesforce', 'order') }}"
+    opportunity_line_item: "{{ source('salesforce', 'opportunity_line_item') }}"
+    salesforce__user_role_enabled: true
+    salesforce__lead_enabled: true
+    salesforce__event_enabled: true
+    salesforce__task_enabled: true
+    salesforce__opportunity_line_item_enabled: true
+    salesforce__order_enabled: true
+    salesforce__product_2_enabled: true
+    salesforce__account_pass_through_columns: []
+    salesforce__contact_pass_through_columns: []
+    salesforce__event_pass_through_columns: []
+    salesforce__lead_pass_through_columns: []
+    salesforce__opportunity_pass_through_columns: []
+    salesforce__opportunity_line_item_pass_through_columns: []
+    salesforce__order_pass_through_columns: []
+    salesforce__product_2_pass_through_columns: []
+    salesforce__task_pass_through_columns: []
+    salesforce__user_role_pass_through_columns: []
+    salesforce__user_pass_through_columns: []
+    using_account_history_mode_active_records: false
+    using_opportunity_history_mode_active_records: false
+    using_user_role_history_mode_active_records: false
+    using_user_history_mode_active_records: false
+    using_contact_history_mode_active_records: false
+    using_lead_history_mode_active_records: false
+    using_task_history_mode_active_records: false
+    using_event_history_mode_active_records: false
+    using_product_2_history_mode_active_records: false
+    using_order_history_mode_active_records: false
+    using_opportunity_line_item_history_mode_active_records: false
